@@ -2,14 +2,14 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:real_estate/constants/colors.dart';
-import 'package:real_estate/screens/register.dart';
+import 'package:real_estate/screens/sign_in.dart';
 
-class SignInScreen extends StatefulWidget {
+class RegisterScreen extends StatefulWidget {
   @override
-  _SignInScreenState createState() => _SignInScreenState();
+  _RegisterScreenState createState() => _RegisterScreenState();
 }
 
-class _SignInScreenState extends State<SignInScreen> {
+class _RegisterScreenState extends State<RegisterScreen> {
   Widget _buildHeader() {
     return Container(
       width: double.infinity,
@@ -18,27 +18,17 @@ class _SignInScreenState extends State<SignInScreen> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "LOGO",
+            "New account,",
             style: TextStyle(
               fontFamily: "Avenir",
               fontSize: 36,
               fontWeight: FontWeight.w300,
-              color: blue,
-            ),
-          ),
-          Text(
-            "Hello there!",
-            style: TextStyle(
-              fontFamily: "Avenir",
-              fontSize: 24,
-              fontWeight: FontWeight.w300,
-              color: gray,
             ),
           ),
           Opacity(
             opacity: .5,
             child: Text(
-              "Sign in to access your account",
+              "Create new account to use the app",
               style: TextStyle(
                 color: gray,
                 fontFamily: "Avenir",
@@ -94,6 +84,8 @@ class _SignInScreenState extends State<SignInScreen> {
       width: double.infinity,
       child: Column(
         children: <Widget>[
+          _buildFormRow("assets/images/ico-user.svg", "Full name", false),
+          SizedBox(height: 15),
           _buildFormRow("assets/images/email.svg", "Email", false),
           SizedBox(height: 15),
           _buildFormRow("assets/images/lock.svg", "Password", true),
@@ -110,29 +102,10 @@ class _SignInScreenState extends State<SignInScreen> {
               color: blue,
               textColor: Colors.white,
               child: Text(
-                'Sign in',
+                'Register',
                 style: TextStyle(
                   fontFamily: "Avenir",
                   fontSize: 16,
-                ),
-              ),
-            ),
-          ),
-          GestureDetector(
-            onTap: () {
-              print("Forgot password");
-            },
-            child: Container(
-              padding: EdgeInsets.all(20),
-              child: Opacity(
-                opacity: .5,
-                child: Text(
-                  'Forgot password?',
-                  style: TextStyle(
-                    fontFamily: "Avenir",
-                    fontSize: 14,
-                    fontStyle: FontStyle.italic,
-                  ),
                 ),
               ),
             ),
@@ -148,19 +121,19 @@ class _SignInScreenState extends State<SignInScreen> {
       child: Column(
         children: <Widget>[
           Text(
-            "Don't have an account?",
+            "Already have an account?",
             style: footerStyle,
           ),
           GestureDetector(
             onTap: () {
-              Navigator.of(context).pushReplacement(CupertinoPageRoute(
-                builder: (ctx) => RegisterScreen(),
-              ));
+              Navigator.of(context).pushReplacement(
+                CupertinoPageRoute(builder: (ctx) => SignInScreen()),
+              );
             },
             child: Container(
               padding: EdgeInsets.all(10),
               child: Text(
-                "Register here",
+                "Login here",
                 style: footerStyle.copyWith(color: blue),
               ),
             ),
