@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:real_estate/constants/colors.dart';
 
 const introTitleStyle = const TextStyle(
   fontFamily: 'Avenir',
   fontSize: 22.0,
   fontWeight: FontWeight.w700,
-  color: Color(0xFF3B7CEC)
+  color: blue
 );
 
 const introBodyStyle = const TextStyle(
   fontFamily: 'Avenir',
   fontSize: 18.0,
-  color: Color(0xFF5F5F5F),
+  color: gray,
 );
 
 const buttonText = const TextStyle(
   fontFamily: 'Avenir',
   fontSize: 14,
-  color: Color(0xFF9DABC0),
+  color: lightBlue,
 );

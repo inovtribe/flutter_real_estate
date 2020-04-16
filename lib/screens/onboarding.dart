@@ -1,6 +1,8 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:real_estate/screens/sign_in.dart';
 import 'package:real_estate/text_styles/Introduction.dart';
 
 class OnboardingScreen extends StatefulWidget {
@@ -83,9 +85,18 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 ))
             .toList(),
         onDone: () {},
-        done: const Text(
-          'SIGN IN',
-          style: buttonText,
+        done: GestureDetector(
+          onTap: () {
+            Navigator.of(context).pushReplacement(
+              CupertinoPageRoute(
+                builder: (ctx) => SignInScreen(),
+              ),
+            );
+          },
+          child: const Text(
+            'SIGN IN',
+            style: buttonText,
+          ),
         ),
         next: const Text(
           'NEXT',
